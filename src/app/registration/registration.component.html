@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 shadow-lg p-3 mb-5 bg-body rounded">
+      <form [formGroup]="registrationForm" (ngSubmit)="register()">
+        <h2>Sign Up</h2>
+        <a routerLink="/login">Already have an account? Sign in!</a>
+        <div class="form-goup mt-4">
+          <input
+            class="form-control"
+            type="email"
+            formControlName="email"
+            placeholder="Enter Email"
+            ngModel
+            [email]="true"
+            [class.is-invalid]="
+              this.registrationForm.controls.email.invalid &&
+              this.registrationForm.controls.email.touched
+            "
+          />
+          <small
+            class="text-danger float-start"
+            *ngIf="
+              this.registrationForm.controls.email.invalid &&
+              this.registrationForm.controls.email.touched
+            "
+            >Email is required</small
+          >
+        </div>
+        <div class="form-goup mt-4">
+          <input
+            class="form-control"
+            type="password"
+            formControlName="password"
+            placeholder="Enter Password"
+            [class.is-invalid]="
+              this.registrationForm.controls.password.invalid &&
+              this.registrationForm.controls.password.touched
+            "
+          />
+          <small
+            class="text-danger float-start"
+            *ngIf="
+              this.registrationForm.controls.password.invalid &&
+              this.registrationForm.controls.password.touched
+            "
+            >Password is required</small
+          >
+        </div>
+        <div class="form-goup mt-4">
+          <input
+            class="form-control"
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="Enter Password"
+            [class.is-invalid]="
+              this.registrationForm.controls.confirmPassword.invalid &&
+              this.registrationForm.controls.confirmPassword.touched
+            "
+          />
+          <small
+            class="text-danger float-start"
+            *ngIf="
+              this.registrationForm.controls.confirmPassword.invalid &&
+              this.registrationForm.controls.confirmPassword.touched
+            "
+            >Confirm Password is required</small
+          >
+        </div>
+
+        <div class="form-goup mt-3">
+          <button type="submit" class="btn btn-secondary mt-3">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
