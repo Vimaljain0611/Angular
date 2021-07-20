@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from './login/login.component';
+
+import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,7 @@ import { LoginComponent } from './login/login.component';
 })
 export class AppComponent {
   title = 'userDashboard';
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+}
 }

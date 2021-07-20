@@ -1,0 +1,15 @@
+@import "./constant.scss";
+.container {
+  margin-top: 7%;
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.table-shadow {
+  box-shadow: 0px 0px 14px 2px $color-light-grey;
+}

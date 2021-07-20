@@ -1,0 +1,39 @@
+{
+  "Dashboard": {
+    "Title": "Dashbord",
+    "select": "Velg språk"
+  },
+
+  "Button": {
+    "Logout": "Logg ut",
+    "Login": "Logg Inn",
+    "Submit": "Sende inn"
+  },
+
+  "Login": {
+    "Title": "Logg Inn",
+    "RegisterLink": "Har du ikke en konto? Melde deg på!",
+    "ForgotPassword": "Glemt passord?"
+  },
+
+  "Register": {
+    "Title": "Melde deg på",
+    "LoginLink": "Har du allerede en konto? Logg inn!"
+  },
+
+  "Error": {
+    "Email": "E-post er obligatorisk",
+    "Password": "Passord er påkrevd",
+    "PasswordLength": "Passordet må være mer enn fem sifre",
+    "ConfirmPassword": "Passordet samsvarte ikke"
+  },
+
+  "Email": {
+    "PlaceHolder": "Skriv inn e-post"
+  },
+
+  "Password": {
+    "PlaceHolder": "Oppgi passord",
+    "ConfirmPasswordPlaceHolder": "bekreft passord"
+  }
+}
