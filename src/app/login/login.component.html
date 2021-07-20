@@ -1,57 +1,67 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4 shadow-lg p-3 mb-5 bg-body rounded">
-      <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
-        <h2>Log in</h2>
-        <a routerLink="/register">Don't have an account? Sign up!</a>
-        <div class="form-goup mt-4">
-          <input
-            class="form-control"
-            type="email"
-            formControlName="email"
-            placeholder="Enter Email"
-            ngModel
-            [email]="true"
-            [class.is-invalid]="
-              this.loginForm.controls.email.invalid &&
-              this.loginForm.controls.email.touched
-            "
-          />
-          <small
-            class="text-danger float-start"
-            *ngIf="
-              this.loginForm.controls.email.invalid &&
-              this.loginForm.controls.email.touched
-            "
-            >Email is required</small
-          >
+    <div class="col-md-4 table-shadow p-3 mb-5 bg-body">
+      <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+        <h2>{{ "Login.Title" | translate }}</h2>
+        <a routerLink="/register">{{ "Login.RegisterLink" | translate }}</a>
+        <div class="row">
+          <div class="form-goup mt-4">
+            <input
+              class="form-control"
+              type="email"
+              formControlName="email"
+              placeholder="{{ 'Email.PlaceHolder' | translate }}"
+              ngModel
+              [email]="true"
+              [class.is-invalid]="
+                this.loginForm.controls.email.invalid &&
+                this.loginForm.controls.email.dirty
+              "
+            />
+            <small
+              class="text-danger float-start"
+              *ngIf="
+                this.loginForm.controls.email.invalid &&
+                this.loginForm.controls.email.dirty
+              "
+              >{{ "Error.Email" | translate }}</small
+            >
+          </div>
+          <div class="form-goup mt-4">
+            <input
+              class="form-control"
+              type="password"
+              formControlName="password"
+              placeholder="{{ 'Password.PlaceHolder' | translate }}"
+              [class.is-invalid]="
+                this.loginForm.controls.password.invalid &&
+                this.loginForm.controls.password.dirty
+              "
+            />
+            <small
+              class="text-danger float-start"
+              *ngIf="
+                this.loginForm.controls.password.invalid &&
+                this.loginForm.controls.password.dirty
+              "
+              >{{ "Error.Password" | translate }}</small
+            >
+          </div>
         </div>
-        <div class="form-goup mt-4">
-          <input
-            class="form-control"
-            type="password"
-            formControlName="password"
-            placeholder="Enter Password"
-            [class.is-invalid]="
-              this.loginForm.controls.password.invalid &&
-              this.loginForm.controls.password.touched
-            "
-          />
-          <small
-            class="text-danger float-start"
-            *ngIf="
-              this.loginForm.controls.password.invalid &&
-              this.loginForm.controls.password.touched
-            "
-            >Password is required</small
-          >
-        </div>
-        <div class="float-start mt-3">
-          <a href="#">Forgot password?</a>
+        <div class="col-md-12 mt-3">
+          <a href="#" class="float-start">{{
+            "Login.ForgotPassword" | translate
+          }}</a>
         </div>
         <div class="form-goup mt-3">
-          <button type="submit" class="btn btn-secondary mt-3">Login</button>
+          <button
+            [disabled]="this.loginForm.invalid"
+            type="submit"
+            class="btn btn-secondary mt-3"
+          >
+            {{ "Button.Login" | translate }}
+          </button>
         </div>
       </form>
     </div>

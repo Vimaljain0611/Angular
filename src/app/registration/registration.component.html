@@ -1,30 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4 shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="col-md-4 table-shadow p-3 mb-5 bg-body">
       <form [formGroup]="registrationForm" (ngSubmit)="register()">
-        <h2>Sign Up</h2>
-        <a routerLink="/login">Already have an account? Sign in!</a>
+        <h2>{{ "Register.Title" | translate }}</h2>
+        <a routerLink="/login">{{ "Register.LoginLink" | translate }}</a>
         <div class="form-goup mt-4">
           <input
             class="form-control"
             type="email"
             formControlName="email"
-            placeholder="Enter Email"
-            ngModel
-            [email]="true"
+            placeholder="{{ 'Email.PlaceHolder' | translate }}"
             [class.is-invalid]="
               this.registrationForm.controls.email.invalid &&
-              this.registrationForm.controls.email.touched
+              this.registrationForm.controls.email.dirty
             "
           />
           <small
             class="text-danger float-start"
             *ngIf="
               this.registrationForm.controls.email.invalid &&
-              this.registrationForm.controls.email.touched
+              this.registrationForm.controls.email.dirty
             "
-            >Email is required</small
+            >{{ "Error.Email" | translate }}</small
           >
         </div>
         <div class="form-goup mt-4">
@@ -32,44 +30,56 @@
             class="form-control"
             type="password"
             formControlName="password"
-            placeholder="Enter Password"
+            placeholder="{{ 'Password.PlaceHolder' | translate }}"
             [class.is-invalid]="
               this.registrationForm.controls.password.invalid &&
-              this.registrationForm.controls.password.touched
+              this.registrationForm.controls.password.dirty
             "
           />
-          <small
-            class="text-danger float-start"
+          <div
             *ngIf="
-              this.registrationForm.controls.password.invalid &&
-              this.registrationForm.controls.password.touched
+              (this.registrationForm.controls.password.invalid &&
+                this.registrationForm.controls.password.dirty) ||
+              registrationForm.controls.password.touched
             "
-            >Password is required</small
           >
+            <small
+              class="text-danger float-start"
+              *ngIf="this.registrationForm.controls.password.errors?.minlength"
+              >{{ "Error.PasswordLength" | translate }}</small
+            >
+            <small
+              class="text-danger float-start"
+              *ngIf="this.registrationForm.controls.password.errors?.required"
+              >{{ "Error.Password" | translate }}</small
+            >
+          </div>
         </div>
         <div class="form-goup mt-4">
           <input
             class="form-control"
             type="password"
             formControlName="confirmPassword"
-            placeholder="Enter Password"
-            [class.is-invalid]="
-              this.registrationForm.controls.confirmPassword.invalid &&
-              this.registrationForm.controls.confirmPassword.touched
-            "
+            placeholder="{{
+              'Password.ConfirmPasswordPlaceHolder' | translate
+            }}"
+            [class.is-invalid]="registrationForm.errors?.misMatch"
           />
           <small
             class="text-danger float-start"
-            *ngIf="
-              this.registrationForm.controls.confirmPassword.invalid &&
-              this.registrationForm.controls.confirmPassword.touched
-            "
-            >Confirm Password is required</small
+            *ngIf="this.registrationForm.errors?.misMatch"
+            >{{ "Error.ConfirmPassword" | translate }}</small
           >
         </div>
 
         <div class="form-goup mt-3">
-          <button type="submit" class="btn btn-secondary mt-3">Submit</button>
+          <button
+            type="submit"
+            [disabled]="this.registrationForm.invalid"
+            class="btn btn-secondary mt-3"
+          >
+            {{ "Button.Submit" | translate }}
+          </button>
         </div>
       </form>
     </div>

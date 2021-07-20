@@ -1,31 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
-import { RegistrationService } from '../registration.service';
+import { Router } from '@angular/router';
+import { authService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss', '../style/form.scss'],
 })
 export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    private _registerService: RegistrationService
+    private authService: authService,
+    private route: Router
   ) {}
 
   loginForm: FormGroup;
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  checkLogin() {
-    this._registerService.checkLogin(this.loginForm.value).subscribe(
-      (Response) => console.log('success'),
-      (error) => console.log('Error!', error)
-    );
+  userLogin(): void {
+    this.authService.checkLogin(this.loginForm.value);
+    this.route.navigate(['/dashboard']);
   }
 }

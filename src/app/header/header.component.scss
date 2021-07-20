@@ -1,0 +1,12 @@
+@import "../style/constant.scss";
+.row {
+  background-color: $color-light-grey;
+  padding: 6px;
+  width: 100%;
+}
+label {
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  float: right;
+}

@@ -1,0 +1,39 @@
+{
+  "Dashboard": {
+    "Title": "Dashboard",
+    "select": "Select Language"
+  },
+
+  "Button": {
+    "Logout": "Logout",
+    "Login": "Login",
+    "Submit": "Submit"
+  },
+
+  "Login": {
+    "Title": "Login",
+    "RegisterLink": "Don't have an account? Sign up!",
+    "ForgotPassword": "Forgot password?"
+  },
+
+  "Register": {
+    "Title": "Sign up",
+    "LoginLink": " Already have an account? Sign in!"
+  },
+
+  "Error": {
+    "Email": "Email is required",
+    "Password": "Password is required",
+    "PasswordLength": "Password must be more than 5 digit!",
+    "ConfirmPassword": "Password didn't match"
+  },
+
+  "Email": {
+    "PlaceHolder": "Enter Email"
+  },
+
+  "Password": {
+    "PlaceHolder": "Enter Password",
+    "ConfirmPasswordPlaceHolder": "Confirm Password"
+  }
+}
